@@ -201,7 +201,7 @@ export default function Homepage({
             </svg>
             <div className="mt-2 filter drop-shadow-[0_2px_8px_rgba(10,17,32,0.95)]">
               <span className="font-sans font-black tracking-[0.1em] text-[#C9A227] text-2xl sm:text-4xl leading-none block uppercase">
-                MAGASHOP souvenirs
+                MAGASHOP SOUVENIRS
               </span>
               <span className={`${currentLang === 'ar' ? 'font-serif' : 'font-sans'} text-[11px] sm:text-[13px] text-white tracking-[0.45em] font-light leading-none block mt-1.5 uppercase`}>
                 {currentLang === 'ar' ? 'بازار السوفنيرز المتميز' : 'SOUVENIRS'}

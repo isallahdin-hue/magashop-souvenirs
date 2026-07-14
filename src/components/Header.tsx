@@ -120,7 +120,7 @@ export default function Header({
               </div>
               <div className="text-start">
                 <span className="font-sans text-lg sm:text-xl font-black tracking-[0.05em] text-[#C9A227] leading-none block">
-                  MAGASHOP souvenirs
+                  MAGASHOP SOUVENIRS
                 </span>
                 <span className="text-[9px] text-gray-300 tracking-[0.3em] font-light leading-none block mt-1 uppercase opacity-80">
                   {currentLang === 'ar' ? 'روائع الصناعة التقليدية' : 'SOUVENIRS DE PRESTIGE'}
