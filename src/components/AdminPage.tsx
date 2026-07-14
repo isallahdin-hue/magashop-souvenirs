@@ -539,34 +539,7 @@ export default function AdminPage({
         </button>
       </div>
 
-      {/* SEED DATABASE NOTICE */}
-      {isFirestoreEmpty && (
-        <div className="mb-8 p-6 bg-amber-950/20 border border-amber-500/30 rounded-2xl backdrop-blur-sm shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-center md:text-start flex-col md:flex-row">
-            <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0 border border-amber-500/20">
-              <Sparkles className="w-6 h-6 animate-pulse" />
-            </div>
-            <div>
-              <h3 className="text-sm font-bold text-[#C9A227]">
-                {isRTL ? 'قاعدة البيانات السحابية فارغة' : 'La base de données cloud est vide'}
-              </h3>
-              <p className="text-xs text-gray-300 mt-1 max-w-2xl">
-                {isRTL 
-                  ? 'يرجى تهيئة متجر التخزين السحابي بالتحف والمنتجات الافتراضية المضمنة في البرنامج لتفعيل قاعدة البيانات وبدء العرض فوراً.'
-                  : 'Veuillez initialiser la base de données cloud avec les produits par défaut pour activer l\'affichage des articles.'}
-              </p>
-            </div>
-          </div>
-          <button
-            onClick={handleSeed}
-            disabled={isSeeding}
-            className="w-full md:w-auto px-6 py-3 bg-[#C9A227] hover:bg-white text-[#0F1B2E] disabled:bg-[#C9A227]/40 disabled:text-[#0F1B2E]/60 font-bold text-xs uppercase tracking-wider rounded-xl transition-all duration-300 shadow-lg active:scale-95 shrink-0 flex items-center justify-center gap-2 cursor-pointer"
-          >
-            {isSeeding && <Loader2 className="w-4 h-4 animate-spin" />}
-            <span>{isRTL ? 'تهيئة المتجر الآن' : 'Initialiser le Magasin'}</span>
-          </button>
-        </div>
-      )}
+
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         

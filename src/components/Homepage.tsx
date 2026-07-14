@@ -309,16 +309,16 @@ export default function Homepage({
               <div className="pt-4 border-t border-[#C9A227]/10 space-y-3">
                 <p className="text-xs text-[#C9A227] font-medium">
                   {currentLang === 'ar' 
-                    ? 'بصفتك المشرف، يمكنك تهيئة المتجر أو إضافة منتجات جديدة الآن.' 
+                    ? 'بصفتك المشرف، يمكنك البدء في إضافة منتجات جديدة الآن.' 
                     : currentLang === 'fr'
-                    ? 'En tant qu\'administrateur, vous pouvez initialiser la base de données ou ajouter des produits.'
-                    : 'As the administrator, you can seed the database or start adding new products now.'}
+                    ? 'En tant qu\'administrateur, vous pouvez ajouter de nouveaux produits dès maintenant.'
+                    : 'As the administrator, you can start adding new products now.'}
                 </p>
                 <button
                   onClick={() => setCurrentPage('admin')}
                   className="bg-[#C9A227] hover:bg-white text-[#0F1B2E] font-bold text-xs uppercase tracking-widest px-6 py-2.5 rounded-xl transition-all duration-300 transform hover:scale-105"
                 >
-                  {currentLang === 'ar' ? 'الذهاب للوحة التحكم والتهيئة' : currentLang === 'fr' ? 'Aller au panneau d\'administration' : 'Go to Admin Panel'}
+                  {currentLang === 'ar' ? 'الذهاب للوحة التحكم وإضافة منتجات' : currentLang === 'fr' ? 'Aller au panneau d\'administration' : 'Go to Admin Panel'}
                 </button>
               </div>
             ) : null}
