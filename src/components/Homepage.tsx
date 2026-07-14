@@ -3,6 +3,7 @@ import { Star, ShieldCheck, Truck, CreditCard, Sparkles, Instagram, Send, Heart,
 import { Product, Language } from '../types';
 import { TESTIMONIALS, CRAFTING_GALLERY, INSTAGRAM_FEED } from '../data';
 import { TRANSLATIONS } from '../translations';
+import magashopHero from '../assets/images/magashop_hero_1783861535659.jpg';
 import ProductCard from './ProductCard';
 import { RosetteDivider, DotGrid } from './Header';
 
@@ -389,7 +390,7 @@ export default function Homepage({
           {/* Beautiful Showroom Image of the shop */}
           <div className="relative h-96 rounded-2xl overflow-hidden border border-[#C9A227]/25 shadow-xl group">
             <img 
-              src="/src/assets/images/magashop_hero_1783861535659.jpg" 
+              src={magashopHero} 
               alt="MAGASHOP Bazar Souvenirs Souk Lhad" 
               referrerPolicy="no-referrer"
               loading="lazy"

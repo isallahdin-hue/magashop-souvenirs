@@ -12,6 +12,7 @@ import AdminPage from './components/AdminPage';
 import { Product, CartItem, Language } from './types';
 import { PRODUCTS } from './data';
 import { collection, onSnapshot, query, orderBy, doc, setDoc, deleteDoc, writeBatch } from 'firebase/firestore';
+import magashopHero from './assets/images/magashop_hero_1783861535659.jpg';
 import { db } from './firebase';
 
 export default function App() {
@@ -285,7 +286,7 @@ export default function App() {
       <div 
         className="fixed inset-0 -z-10 pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(15, 27, 46, 0.55), rgba(15, 27, 46, 0.65)), url("/src/assets/images/magashop_hero_1783861535659.jpg")`,
+          backgroundImage: `linear-gradient(to bottom, rgba(15, 27, 46, 0.55), rgba(15, 27, 46, 0.65)), url(${magashopHero})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

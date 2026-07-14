@@ -4,6 +4,7 @@ import { Language } from '../types';
 import { TRANSLATIONS } from '../translations';
 import { TESTIMONIALS, CRAFTING_GALLERY } from '../data';
 import { RosetteDivider, DotGrid } from './Header';
+import magashopHero from '../assets/images/magashop_hero_1783861535659.jpg';
 
 interface AboutPageProps {
   currentLang: Language;
@@ -73,7 +74,7 @@ export default function AboutPage({ currentLang }: AboutPageProps) {
               {/* Image Frame with Golden Borders */}
               <div className="relative rounded-2xl overflow-hidden border border-[#C9A227]/30 shadow-2xl aspect-square">
                 <img 
-                  src="/src/assets/images/magashop_hero_1783861535659.jpg" 
+                  src={magashopHero} 
                   alt="Magashop Heritage" 
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"

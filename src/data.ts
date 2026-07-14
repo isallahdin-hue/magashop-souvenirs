@@ -1,4 +1,8 @@
 import { Product, Testimonial, CraftingImage } from './types';
+import fassiPlate from './assets/images/fassi_plate_1783861552280.jpg';
+import magashopHero from './assets/images/magashop_hero_1783861535659.jpg';
+import moroccanLantern from './assets/images/moroccan_lantern_1783861567909.jpg';
+import teaSet from './assets/images/tea_set_1783861582174.jpg';
 
 export const PRODUCTS: Product[] = [
   {
@@ -8,9 +12,9 @@ export const PRODUCTS: Product[] = [
     name_ar: 'طبسيل فاسي ملكي بالزليج',
     category: 'ceramics',
     price: 380,
-    image: '/src/assets/images/fassi_plate_1783861552280.jpg',
+    image: fassiPlate,
     gallery: [
-      '/src/assets/images/fassi_plate_1783861552280.jpg',
+      fassiPlate,
       'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1590424753858-3c6a188a3068?auto=format&fit=crop&w=600&q=80'
     ],
@@ -33,9 +37,9 @@ export const PRODUCTS: Product[] = [
     name_ar: 'فانوس ملكي من النحاس المنقوش',
     category: 'lanterns',
     price: 850,
-    image: '/src/assets/images/moroccan_lantern_1783861567909.jpg',
+    image: moroccanLantern,
     gallery: [
-      '/src/assets/images/moroccan_lantern_1783861567909.jpg',
+      moroccanLantern,
       'https://images.unsplash.com/photo-1565538810844-1e1192116767?auto=format&fit=crop&w=600&q=80'
     ],
     description_fr: 'Fabriquée à la main par les maîtres dinandiers, cette lanterne en laiton projette des ombres géométriques fascinantes rappelant les nuits étoilées du désert marocain. Chaque perforation est minutieusement ciselée au burin.',
@@ -57,9 +61,9 @@ export const PRODUCTS: Product[] = [
     name_ar: 'طقم شاي فاسي مع صينية زليج',
     category: 'tea',
     price: 1200,
-    image: '/src/assets/images/tea_set_1783861582174.jpg',
+    image: teaSet,
     gallery: [
-      '/src/assets/images/tea_set_1783861582174.jpg',
+      teaSet,
       'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80'
     ],
     description_fr: 'Un service à thé marocain impérial comprenant une théière en laiton argenté ciselé, 6 verres à thé colorés aux ornements dorés, et un magnifique plateau assorti décoré d\'incrustations de carreaux de zellige.',
@@ -258,25 +262,25 @@ export const CRAFTING_GALLERY: CraftingImage[] = [
 export const INSTAGRAM_FEED = [
   {
     id: 'ig-1',
-    image: '/src/assets/images/fassi_plate_1783861552280.jpg',
+    image: fassiPlate,
     likes: '1.2k',
     comments: '42'
   },
   {
     id: 'ig-2',
-    image: '/src/assets/images/magashop_hero_1783861535659.jpg',
+    image: magashopHero,
     likes: '950',
     comments: '29'
   },
   {
     id: 'ig-3',
-    image: '/src/assets/images/moroccan_lantern_1783861567909.jpg',
+    image: moroccanLantern,
     likes: '2.4k',
     comments: '88'
   },
   {
     id: 'ig-4',
-    image: '/src/assets/images/tea_set_1783861582174.jpg',
+    image: teaSet,
     likes: '1.8k',
     comments: '56'
   },
