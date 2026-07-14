@@ -23,6 +23,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   const isRTL = currentLang === 'ar';
 
+  const eurPrice = (product.price * 0.091).toFixed(1);
+  const usdPrice = (product.price * 0.098).toFixed(1);
+
   return (
     <div 
       className="bg-[#FBF9F4] text-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-[box-shadow,transform] duration-300 border border-[#C9A227]/20 flex flex-col group relative"
@@ -98,8 +101,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <div className="mt-4 pt-3 border-t border-[#C9A227]/10 flex items-center justify-between">
           <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
             <span className="text-xs text-gray-500 block leading-none">Prix</span>
-            <span className="text-base sm:text-lg font-bold text-[#0F1B2E] tracking-tight">
-              {product.price} <span className="text-xs">MAD</span>
+            <span className="text-base sm:text-lg font-bold text-[#0F1B2E] tracking-tight block">
+              {product.price} <span className="text-xs font-semibold">MAD</span>
+            </span>
+            <span className="text-[10px] text-amber-600 font-bold block mt-0.5 whitespace-nowrap">
+              ≈ {eurPrice}€ / {usdPrice}$
             </span>
           </div>
 

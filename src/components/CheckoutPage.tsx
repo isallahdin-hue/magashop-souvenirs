@@ -26,6 +26,9 @@ export default function CheckoutPage({
     0
   );
 
+  const eurTotal = (subtotal * 0.091).toFixed(1);
+  const usdTotal = (subtotal * 0.098).toFixed(1);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -95,7 +98,12 @@ export default function CheckoutPage({
 
           <div className="bg-slate-950 p-4 rounded-xl border border-[#C9A227]/10 text-xs text-left font-mono space-y-1">
             <p className="text-gray-500">Invoice total:</p>
-            <p className="text-[#C9A227] font-bold text-lg">{subtotal} MAD</p>
+            <p className="text-[#C9A227] font-bold text-lg">
+              {subtotal} MAD
+              <span className="text-xs text-amber-500 font-bold ml-2">
+                (≈ {eurTotal}€ / {usdTotal}$)
+              </span>
+            </p>
             <p className="text-gray-500 pt-2">Deliver to:</p>
             <p className="text-gray-300 truncate">{fullName}</p>
           </div>
@@ -221,7 +229,12 @@ export default function CheckoutPage({
                           <h4 className="font-serif font-bold text-white truncate">{name}</h4>
                           <span className="text-gray-500">Qty: {item.quantity}</span>
                         </div>
-                        <span className="text-xs font-bold text-[#C9A227]">{item.product.price * item.quantity} MAD</span>
+                        <div className="text-right">
+                          <span className="text-xs font-bold text-[#C9A227] block">{item.product.price * item.quantity} MAD</span>
+                          <span className="text-[10px] text-gray-500 block">
+                            ≈ {(item.product.price * item.quantity * 0.091).toFixed(1)}€ / {(item.product.price * item.quantity * 0.098).toFixed(1)}$
+                          </span>
+                        </div>
                       </div>
                     );
                   })}
@@ -239,7 +252,12 @@ export default function CheckoutPage({
                   </div>
                   <div className="flex justify-between text-sm pt-2 border-t border-dashed border-gray-800">
                     <span className="text-gray-300 font-bold">Total</span>
-                    <span className="text-base font-black text-[#C9A227]">{subtotal} MAD</span>
+                    <div className="text-right">
+                      <span className="text-base font-black text-[#C9A227] block">{subtotal} MAD</span>
+                      <span className="text-[10px] text-amber-500 font-bold block mt-0.5">
+                        ≈ {eurTotal} EUR / {usdTotal} USD
+                      </span>
+                    </div>
                   </div>
                 </div>
 

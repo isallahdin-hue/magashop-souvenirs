@@ -55,6 +55,9 @@ export default function ProductDetailPage({
 
   const isRTL = currentLang === 'ar';
 
+  const eurPrice = (product.price * 0.091).toFixed(1);
+  const usdPrice = (product.price * 0.098).toFixed(1);
+
   const relatedProducts = products.filter(
     (p) => p.category === product.category && p.id !== product.id
   ).slice(0, 3);
@@ -206,7 +209,10 @@ export default function ProductDetailPage({
               {/* Price display */}
               <div className="mt-5 p-4 bg-[#C9A227]/5 border border-[#C9A227]/20 rounded-xl inline-block">
                 <span className="text-xs text-gray-400 block uppercase tracking-wider">{currentLang === 'fr' ? 'Prix d\'Atelier' : 'Workshop Price'}</span>
-                <span className="text-3xl font-black text-[#C9A227] tracking-tight">{product.price} <span className="text-lg font-serif">MAD</span></span>
+                <span className="text-3xl font-black text-[#C9A227] tracking-tight block">{product.price} <span className="text-lg font-serif">MAD</span></span>
+                <span className="text-xs text-amber-500 font-bold block mt-1">
+                  ≈ {eurPrice} EUR / {usdPrice} USD
+                </span>
               </div>
 
               {/* Localized Authentic Description */}
@@ -331,7 +337,12 @@ export default function ProductDetailPage({
                     <div className="mt-3">
                       <h4 className="text-xs text-[#C9A227] uppercase tracking-wider font-semibold">{p.category}</h4>
                       <h3 className="font-serif font-bold text-sm text-white line-clamp-1 mt-0.5 group-hover:text-[#C9A227] transition-colors">{relName}</h3>
-                      <p className="text-sm font-bold mt-1 text-gray-200">{p.price} MAD</p>
+                      <p className="text-sm font-bold mt-1 text-gray-200">
+                        {p.price} MAD
+                        <span className="text-[10px] text-amber-500 font-semibold block mt-0.5">
+                          ≈ {(p.price * 0.091).toFixed(1)}€ / {(p.price * 0.098).toFixed(1)}$
+                        </span>
+                      </p>
                     </div>
                   </div>
                 );

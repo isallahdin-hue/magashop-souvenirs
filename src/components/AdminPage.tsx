@@ -484,6 +484,15 @@ export default function AdminPage({
             </button>
           </form>
 
+          <div className="mt-2 p-3 bg-amber-950/15 border border-amber-500/20 rounded-xl space-y-1 text-[10px] text-gray-400">
+            <span className="font-bold text-amber-500 block">💡 {isRTL ? 'تنبيه التهيئة الهام:' : 'Conseil de configuration :'}</span>
+            <p className="leading-relaxed">
+              {isRTL 
+                ? 'يرجى التأكد من تفعيل موفر تسجيل الدخول بالبريد الإلكتروني والرقم السري (Email/Password) يدوياً من داخل لوحة تحكم Firebase Console (Authentication -> Sign-in method) ليتمكن حساب admin@magashop.com من الدخول والعمل دون أي مشاكل.' 
+                : 'Veuillez vérifier que le fournisseur de connexion (Email/Password) est bien activé manuellement dans votre console Firebase (Authentication -> Sign-in method) afin que le compte admin@magashop.com puisse s\'authentifier.'}
+            </p>
+          </div>
+
           <div className="pt-2 border-t border-gray-800 flex justify-between items-center text-[11px] text-gray-500">
             <span>Passcode: <code className="text-[#C9A227]">••••••••</code></span>
             <button onClick={onBack} className="text-[#C9A227] hover:underline flex items-center gap-1">
@@ -773,6 +782,18 @@ export default function AdminPage({
                     )}
                   </div>
                 )}
+
+                {/* Image upload size advice / optimization tip */}
+                <div className="mt-3 p-2 bg-[#C9A227]/5 border border-[#C9A227]/10 rounded-lg text-[10px] text-gray-400 space-y-1">
+                  <span className="font-bold text-[#C9A227] block">
+                    ⚡ {isRTL ? 'تحسين الأداء وسرعة التحميل:' : 'Optimisation de la vitesse :'}
+                  </span>
+                  <p className="leading-relaxed">
+                    {isRTL 
+                      ? 'للحفاظ على سرعة فائقة في استجابة قاعدة البيانات وتصفح الموقع، يرجى رفع صور مضغوطة مسبقاً (أقل من 100 كيلوبايت)، أو استخدام خيار "رابط ويب مباشر" للصور عالية الدقة.' 
+                      : 'Pour garantir un chargement ultra-rapide du catalogue, privilégiez des images compressées (moins de 100 Ko) pour le téléchargement, ou utilisez l\'option de "Lien Web (URL)" pour les images haute définition.'}
+                  </p>
+                </div>
               </div>
 
               {/* Description Fields */}

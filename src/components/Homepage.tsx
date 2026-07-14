@@ -1,6 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Star, ShieldCheck, Truck, CreditCard, Sparkles, Instagram, Send, Heart, MessageCircle, Search, SlidersHorizontal, RotateCcw, PackageOpen, Filter, Coffee, Box, Layers, Palette } from 'lucide-react';
 import { Product, Language } from '../types';
+import { onAuthStateChanged, User } from 'firebase/auth';
+import { auth } from '../firebase';
 import { TESTIMONIALS, CRAFTING_GALLERY, INSTAGRAM_FEED } from '../data';
 import { TRANSLATIONS } from '../translations';
 import magashopHero from '../assets/images/magashop_hero_1783861535659.jpg';
@@ -79,6 +81,15 @@ export default function Homepage({
 
   // Core search state for direct catalog on Homepage
   const [searchQuery, setSearchQuery] = useState('');
+
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const bestSellers = products.filter((p) => p.isBestSeller).slice(0, 4);
   const newArrivals = products.filter((p) => p.isNewArrival).slice(0, 4);
@@ -273,7 +284,46 @@ export default function Homepage({
         </div>
 
         {/* Product Catalog Display (Normal View: Categorized Sections) */}
-        {!searchQuery.trim() ? (
+        {products.length === 0 ? (
+          <div className="py-20 px-6 text-center max-w-lg mx-auto bg-slate-900/40 border border-[#C9A227]/20 rounded-3xl space-y-6 relative overflow-hidden backdrop-blur-md">
+            {/* Ambient gold radial glow */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#C9A227]/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#C9A227]/5 rounded-full blur-3xl pointer-events-none" />
+            
+            <PackageOpen className="w-16 h-16 text-[#C9A227] mx-auto opacity-70 animate-pulse" />
+            
+            <div className="space-y-2">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#C9A227]">
+                {currentLang === 'ar' ? 'المعرض فارغ حالياً' : currentLang === 'fr' ? 'Le catalogue est vide' : 'The catalog is empty'}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                {currentLang === 'ar' 
+                  ? 'يرجى العودة لاحقاً، نحن بصدد تحضير وإضافة مجموعة جديدة ومميزة من التحف التقليدية المغربية الفاخرة.' 
+                  : currentLang === 'fr'
+                  ? 'Veuillez revenir plus tard, nous préparons une nouvelle collection de chefs-d\'œuvre de l\'artisanat marocain.'
+                  : 'Please check back soon! We are preparing a brand new collection of premium Moroccan traditional masterworks.'}
+              </p>
+            </div>
+
+            {currentUser ? (
+              <div className="pt-4 border-t border-[#C9A227]/10 space-y-3">
+                <p className="text-xs text-[#C9A227] font-medium">
+                  {currentLang === 'ar' 
+                    ? 'بصفتك المشرف، يمكنك تهيئة المتجر أو إضافة منتجات جديدة الآن.' 
+                    : currentLang === 'fr'
+                    ? 'En tant qu\'administrateur, vous pouvez initialiser la base de données ou ajouter des produits.'
+                    : 'As the administrator, you can seed the database or start adding new products now.'}
+                </p>
+                <button
+                  onClick={() => setCurrentPage('admin')}
+                  className="bg-[#C9A227] hover:bg-white text-[#0F1B2E] font-bold text-xs uppercase tracking-widest px-6 py-2.5 rounded-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  {currentLang === 'ar' ? 'الذهاب للوحة التحكم والتهيئة' : currentLang === 'fr' ? 'Aller au panneau d\'administration' : 'Go to Admin Panel'}
+                </button>
+              </div>
+            ) : null}
+          </div>
+        ) : !searchQuery.trim() ? (
           // GROUPED BY CATEGORY VIEW
           <div className="space-y-16">
             {uniqueCategories.map((catKey) => {

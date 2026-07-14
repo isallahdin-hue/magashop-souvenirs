@@ -33,6 +33,10 @@ export default function App() {
   });
 
   const [products, setProducts] = useState<Product[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    const saved = localStorage.getItem('magashop_cart');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [categories, setCategories] = useState<string[]>(['ceramics', 'lanterns', 'tea', 'mirrors', 'boxes', 'perfumes']);
   const [isFirestoreEmpty, setIsFirestoreEmpty] = useState(false);
 
@@ -74,6 +78,19 @@ export default function App() {
 
     return () => unsubscribe();
   }, []);
+
+  // Synchronize and clean up deleted products from Cart
+  useEffect(() => {
+    if (products.length > 0) {
+      const activeIds = new Set(products.map((p) => p.id));
+      const filteredCart = cart.filter((item) => activeIds.has(item.product.id));
+      if (filteredCart.length !== cart.length) {
+        setCart(filteredCart);
+      }
+    } else if (isFirestoreEmpty && cart.length > 0) {
+      setCart([]);
+    }
+  }, [products, isFirestoreEmpty, cart]);
 
   const handleSeedDatabase = async () => {
     try {
@@ -167,12 +184,6 @@ export default function App() {
     const saved = localStorage.getItem('magashop_selected_product');
     return saved ? JSON.parse(saved) : null;
   });
-
-  const [cart, setCart] = useState<CartItem[]>(() => {
-    const saved = localStorage.getItem('magashop_cart');
-    return saved ? JSON.parse(saved) : [];
-  });
-
 
   const [cartOpen, setCartOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
