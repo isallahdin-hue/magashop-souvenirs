@@ -49,11 +49,11 @@ export default function ContactPage({ currentLang }: ContactPageProps) {
                   <h3 className="font-serif font-bold text-sm uppercase tracking-wider">{t.addressTitle}</h3>
                 </div>
                 <div className="text-xs sm:text-sm text-gray-300 space-y-1 pl-8">
-                  <p className="font-semibold text-white">Souk Lhad Agadir</p>
-                  <p>Port N°3, Sidi Massa</p>
-                  <p>Souss-Massa, Maroc</p>
+                  <p className="font-semibold text-white">MAGASHOP SOUVENIRS</p>
+                  <p>Sijil Massa, Souk El Had, Porte N°3</p>
+                  <p>Agadir 80000, Maroc</p>
                   <p className="font-sans text-[11px] text-[#C9A227] mt-1" dir="rtl">
-                    سوق الأحد أكادير باب رقم 3 سيدي ماسة
+                    MAGASHOP SOUVENIRS، سجل ماسة، سوق الحد، باب رقم 3، أكادير 80000
                   </p>
                 </div>
               </div>
@@ -144,20 +144,20 @@ export default function ContactPage({ currentLang }: ContactPageProps) {
           <div className="lg:col-span-3 bg-slate-900/40 border border-[#C9A227]/15 rounded-2xl overflow-hidden h-[450px] lg:h-full min-h-[400px] relative">
             <iframe
               title="Magashop Souvenirs Map - Souk Lhad Agadir"
-              src="https://maps.google.com/maps?q=Souk%20El%20Had%20Agadir%20Porte%203&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=MAGASHOP%20SOUVENIRS%2C%20%D8%B3%D8%AC%D9%84%20%D9%85%D8%A7%D8%B3%D8%A9%D8%8C%20%D8%B3%D9%88%D9%82%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8E%D8%8C%20%D8%A8%D8%A7%D8%A8%20%D8%B1%D9%82%D9%85%203%2C%20Agadir%2080000&t=&z=17&ie=UTF8&iwloc=&output=embed"
               className="absolute inset-0 w-full h-full border-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
               allowFullScreen={false}
               loading="lazy"
             />
             {/* Overlay map label */}
-            <div className="absolute bottom-4 left-4 bg-[#0F1B2E]/90 backdrop-blur-md border border-[#C9A227]/30 p-3.5 rounded-xl max-w-xs text-xs space-y-1.5">
+            <div className="absolute bottom-4 left-4 bg-[#0F1B2E]/90 backdrop-blur-md border border-[#C9A227]/30 p-3.5 rounded-xl max-w-xs text-xs space-y-1.5 text-left">
               <span className="font-bold text-[#C9A227] block">Souk Lhad - Gate 3</span>
               <p className="text-gray-300 leading-snug font-sans">
                 {currentLang === 'fr' 
-                  ? 'Entrez par la Porte N°3, nous sommes situés près de la section artisanale Sidi Massa.' 
+                  ? 'Entrez par la Porte N°3, nous sommes situés près de la section artisanale Sijil Massa.' 
                   : currentLang === 'en'
-                  ? 'Enter via Gate N°3, we are located near the Sidi Massa handicraft section.'
-                  : 'ادخل من الباب رقم 3، نحن نتواجد بالقرب من جناح الصناعة التقليدية سيدي ماسة.'}
+                  ? 'Enter via Gate N°3, we are located near the Sijil Massa handicraft section.'
+                  : 'ادخل من الباب رقم 3، نحن نتواجد بالقرب من جناح الصناعة التقليدية سجل ماسة.'}
               </p>
             </div>
           </div>

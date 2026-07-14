@@ -183,10 +183,10 @@ export default function Footer({ currentLang, setCurrentPage, onSelectCategory }
                   <div>
                     <span className="block font-semibold text-white">Adresse / العنوان</span>
                     <span className="block text-[11px] leading-relaxed">
-                      Souk Lhad Agadir, Port N°3, Sidi Massa
+                      Souk Lhad Agadir, Port N°3, Sijil Massa
                     </span>
                     <span className="block text-[11px] font-sans mt-0.5" dir="rtl">
-                      سوق الأحد أكادير باب رقم 3 سيدي ماسة
+                      سوق الأحد أكادير باب رقم 3 سجل ماسة
                     </span>
                   </div>
                 </div>
