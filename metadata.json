@@ -1,0 +1,6 @@
+{
+  "name": "Magashop Souvenirs",
+  "description": "Authentic Moroccan Souvenir Shop in Agadir specializing in traditional Fassi zellige and handcrafted souvenirs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
