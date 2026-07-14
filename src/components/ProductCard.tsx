@@ -55,14 +55,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <button 
             onClick={() => onViewDetails(product)}
             className="w-10 h-10 rounded-full bg-[#C9A227] text-[#0F1B2E] flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-lg"
-            title="Détails"
+            title={isRTL ? 'التفاصيل' : currentLang === 'en' ? 'Details' : 'Détails'}
           >
             <Eye className="w-5 h-5" />
           </button>
           <button 
             onClick={(e) => onAddToCart(product, e)}
             className="w-10 h-10 rounded-full bg-white text-[#0F1B2E] flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0F1B2E] hover:scale-110 transition-all shadow-lg"
-            title="Ajouter au Panier"
+            title={isRTL ? 'أضف إلى السلة' : currentLang === 'en' ? 'Add to Cart' : 'Ajouter au Panier'}
           >
             <ShoppingCart className="w-5 h-5" />
           </button>
@@ -100,7 +100,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
         <div className="mt-4 pt-3 border-t border-[#C9A227]/10 flex items-center justify-between">
           <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-            <span className="text-xs text-gray-500 block leading-none">Prix</span>
+            <span className="text-xs text-gray-500 block leading-none">
+              {isRTL ? 'الثمن' : currentLang === 'en' ? 'Price' : 'Prix'}
+            </span>
             <span className="text-base sm:text-lg font-bold text-[#0F1B2E] tracking-tight block">
               {product.price} <span className="text-xs font-semibold">MAD</span>
             </span>

@@ -1045,12 +1045,14 @@ export default function AdminPage({
             
             <div className="space-y-2">
               <h3 className="font-serif text-lg font-bold text-[#C9A227]">
-                {isRTL ? 'تأكيد حذف المنتج' : 'Confirmer la suppression'}
+                {isRTL ? 'تأكيد حذف المنتج' : currentLang === 'en' ? 'Confirm Product Deletion' : 'Confirmer la suppression'}
               </h3>
               <p className="text-xs text-gray-400 leading-relaxed">
                 {isRTL 
                   ? `هل أنت متأكد من حذف المنتج: "${productToDelete.name_ar}"؟ هذا الإجراء لا يمكن التراجع عنه.`
-                  : `Voulez-vous vraiment supprimer le produit : "${currentLang === 'fr' ? productToDelete.name_fr : productToDelete.name_en}" ? Cette action est irréversible.`}
+                  : currentLang === 'en'
+                  ? `Are you sure you want to delete the product: "${productToDelete.name_en || productToDelete.name_fr}"? This action is irreversible.`
+                  : `Voulez-vous vraiment supprimer le produit : "${productToDelete.name_fr || productToDelete.name_en}" ? Cette action est irréversible.`}
               </p>
             </div>
 
@@ -1059,17 +1061,17 @@ export default function AdminPage({
                 onClick={() => {
                   onDeleteProduct(productToDelete.id);
                   setProductToDelete(null);
-                  showToast(isRTL ? 'تم حذف المنتج بنجاح!' : 'Produit supprimé avec succès !', 'success');
+                  showToast(isRTL ? 'تم حذف المنتج بنجاح!' : currentLang === 'en' ? 'Product deleted successfully!' : 'Produit supprimé avec succès !', 'success');
                 }}
                 className="flex-1 bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-xl text-xs transition-all active:scale-95"
               >
-                {isRTL ? 'نعم، احذف' : 'Oui, Supprimer'}
+                {isRTL ? 'نعم، احذف' : currentLang === 'en' ? 'Yes, Delete' : 'Oui, Supprimer'}
               </button>
               <button
                 onClick={() => setProductToDelete(null)}
                 className="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold py-2 px-4 rounded-xl text-xs border border-gray-700 transition-all active:scale-95"
               >
-                {isRTL ? 'إلغاء' : 'Annuler'}
+                {isRTL ? 'إلغاء' : currentLang === 'en' ? 'Cancel' : 'Annuler'}
               </button>
             </div>
           </div>
@@ -1086,11 +1088,13 @@ export default function AdminPage({
             
             <div className="space-y-2">
               <h3 className="font-serif text-lg font-bold text-[#C9A227]">
-                {isRTL ? 'تأكيد حذف الفئة' : 'Confirmer la suppression de la catégorie'}
+                {isRTL ? 'تأكيد حذف الفئة' : currentLang === 'en' ? 'Confirm Category Deletion' : 'Confirmer la suppression de la catégorie'}
               </h3>
               <p className="text-xs text-red-400 font-semibold leading-relaxed">
                 {isRTL 
                   ? `تنبيه هام جداً: حذف فئة "${categoryToDelete.toUpperCase()}" سيؤدي لحذف الفئة وجميع المنتجات المرتبطة بها كلياً وبشكل نهائي!`
+                  : currentLang === 'en'
+                  ? `CRITICAL WARNING: Deleting the category "${categoryToDelete.toUpperCase()}" will permanently and completely delete this category and ALL associated products!`
                   : `ATTENTION : Supprimer la catégorie "${categoryToDelete.toUpperCase()}" supprimera définitivement cette catégorie ainsi que TOUS les produits associés !`}
               </p>
             </div>
@@ -1100,17 +1104,17 @@ export default function AdminPage({
                 onClick={() => {
                   onDeleteCategory(categoryToDelete);
                   setCategoryToDelete(null);
-                  showToast(isRTL ? 'تم حذف الفئة وجميع منتجاتها!' : 'Catégorie et tous ses produits supprimés !', 'success');
+                  showToast(isRTL ? 'تم حذف الفئة وجميع منتجاتها!' : currentLang === 'en' ? 'Category and all its products deleted!' : 'Catégorie et tous ses produits supprimés !', 'success');
                 }}
                 className="flex-1 bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-xl text-xs transition-all active:scale-95"
               >
-                {isRTL ? 'نعم، احذف كل شيء' : 'Oui, Tout Supprimer'}
+                {isRTL ? 'نعم، احذف كل شيء' : currentLang === 'en' ? 'Yes, Delete Everything' : 'Oui, Tout Supprimer'}
               </button>
               <button
                 onClick={() => setCategoryToDelete(null)}
                 className="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold py-2 px-4 rounded-xl text-xs border border-gray-700 transition-all active:scale-95"
               >
-                {isRTL ? 'إلغاء' : 'Annuler'}
+                {isRTL ? 'إلغاء' : currentLang === 'en' ? 'Cancel' : 'Annuler'}
               </button>
             </div>
           </div>

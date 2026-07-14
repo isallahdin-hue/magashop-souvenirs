@@ -48,13 +48,26 @@ export default function CheckoutPage({
       message += `💰 *المجموع الإجمالي:* *${subtotal} درهم مغربي*\n`;
       message += `━━━━━━━━━━━━━━━━━━━━━\n`;
       message += `💬 *شكراً لتسوقكم من متجرنا! نتطلع لتأكيد طلبيتكم وتوصيلها.*`;
+    } else if (currentLang === 'en') {
+      message = `🧾 *NEW ORDER - MAGASHOP* 🧾\n`;
+      message += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      message += `👤 *Customer:* ${fullName}\n\n`;
+      message += `📦 *Ordered Products:*\n`;
+      cartItems.forEach((item) => {
+        const name = item.product.name_en || item.product.name_fr || item.product.name_ar;
+        message += `• *${name}*\n  (Qty: ${item.quantity}) ➔ ${item.product.price * item.quantity} MAD\n`;
+      });
+      message += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      message += `💰 *TOTAL ORDER:* *${subtotal} MAD*\n`;
+      message += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      message += `💬 *Thank you for your trust! We are finalizing the shipment together.*`;
     } else {
       message = `🧾 *NOUVELLE COMMANDE - MAGASHOP* 🧾\n`;
       message += `━━━━━━━━━━━━━━━━━━━━━\n`;
       message += `👤 *Client :* ${fullName}\n\n`;
       message += `📦 *Produits commandés :*\n`;
       cartItems.forEach((item) => {
-        const name = currentLang === 'fr' ? item.product.name_fr : item.product.name_en;
+        const name = item.product.name_fr || item.product.name_en || item.product.name_ar;
         message += `• *${name}*\n  (Qté: ${item.quantity}) ➔ ${item.product.price * item.quantity} MAD\n`;
       });
       message += `━━━━━━━━━━━━━━━━━━━━━\n`;
@@ -157,7 +170,7 @@ export default function CheckoutPage({
             <form onSubmit={handleSubmit} className="lg:col-span-3 bg-[#0A1120]/60 backdrop-blur-sm border border-[#C9A227]/15 rounded-2xl p-6 sm:p-8 space-y-6">
               <h3 className="font-serif text-lg font-bold text-[#C9A227] uppercase tracking-wider border-b border-[#C9A227]/10 pb-3 flex items-center gap-2">
                 <User className="w-5 h-5 text-[#C9A227]" />
-                <span>{currentLang === 'ar' ? 'معلومات المشتري' : 'Informations de l\'Acheteur'}</span>
+                <span>{currentLang === 'ar' ? 'معلومات المشتري' : currentLang === 'en' ? 'Buyer Information' : 'Informations de l\'Acheteur'}</span>
               </h3>
 
               <div className="space-y-4">
@@ -172,7 +185,7 @@ export default function CheckoutPage({
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder={currentLang === 'ar' ? 'مثال: مصطفى العلوي' : 'Ex: Mustapha Alaoui'}
+                    placeholder={currentLang === 'ar' ? 'مثال: مصطفى العلوي' : currentLang === 'en' ? 'Ex: John Doe' : 'Ex: Mustapha Alaoui'}
                     className="w-full bg-[#0F1B2E] border border-[#C9A227]/20 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-[#C9A227] transition-all"
                   />
                 </div>
@@ -181,11 +194,15 @@ export default function CheckoutPage({
                   <p className="font-bold text-[#C9A227]">
                     {currentLang === 'ar' 
                       ? '💡 طريقة الشراء الوحيدة المعتمدة في متجرنا:' 
+                      : currentLang === 'en'
+                      ? '💡 The only authorized ordering method in our shop:'
                       : '💡 Le seul moyen de commande autorisé sur notre boutique :'}
                   </p>
                   <p dir={currentLang === 'ar' ? 'rtl' : 'ltr'}>
                     {currentLang === 'ar'
                       ? 'بعد إدخال اسمك، سيتم نقلك مباشرة إلى تطبيق واتساب لإرسال الطلبية والتواصل معنا لتأكيد تفاصيل الشحن والتوصيل بكل سهولة وأمان.'
+                      : currentLang === 'en'
+                      ? 'After entering your name, you will be directly redirected to the WhatsApp app to send us your cart summary and finalize shipping details with us easily and securely.'
                       : 'Après avoir saisi votre nom, vous serez directement redirigé(e) vers l\'application WhatsApp pour nous envoyer le récapitulatif de votre panier et finaliser l\'expédition avec nous.'}
                   </p>
                 </div>

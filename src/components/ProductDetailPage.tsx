@@ -292,7 +292,7 @@ export default function ProductDetailPage({
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.588 1.981 14.115.957 11.5.957c-5.442 0-9.866 4.372-9.87 9.802 0 1.905.525 3.76 1.517 5.372l-.993 3.626 3.74-.973zm11.398-7.384c-.312-.156-1.847-.91-2.128-1.012-.282-.102-.487-.153-.69.153-.205.307-.795.998-.973 1.201-.178.204-.357.228-.669.072-1.395-.7-2.34-1.258-3.262-2.845-.24-.413.24-.383.687-1.272.078-.156.039-.293-.02-.397-.059-.104-.487-1.173-.668-1.609-.176-.425-.37-.366-.508-.373-.13-.005-.28-.006-.43-.006-.15 0-.395.056-.603.282-.207.227-.792.774-.792 1.888s.81 2.19.922 2.344c.112.155 1.594 2.435 3.862 3.415 1.348.58 2.395.922 3.218 1.183.83.263 1.585.226 2.182.137.665-.1 1.847-.756 2.11-1.487.262-.731.262-1.356.184-1.488-.078-.13-.282-.207-.594-.363z"/>
                   </svg>
-                  <span>{currentLang === 'ar' ? 'شراء عبر الواتساب' : 'Acheter via WhatsApp'}</span>
+                  <span>{currentLang === 'ar' ? 'شراء عبر الواتساب' : currentLang === 'en' ? 'Buy via WhatsApp' : 'Acheter via WhatsApp'}</span>
                 </button>
 
               </div>
@@ -300,7 +300,7 @@ export default function ProductDetailPage({
               {/* Secure order statement */}
               <div className="flex items-center gap-2 text-xs text-gray-400 justify-center">
                 <ShieldCheck className="w-4 h-4 text-[#C9A227]" />
-                <span>{currentLang === 'ar' ? 'ضمان 100% أصلي من أكادير • مساعدة مباشرة عبر واتساب' : 'Garantie 100% Authentique d\'Agadir • Assistance WhatsApp directe'}</span>
+                <span>{currentLang === 'ar' ? 'ضمان 100% أصلي من أكادير • مساعدة مباشرة عبر واتساب' : currentLang === 'en' ? '100% Authentic Guarantee from Agadir • Direct WhatsApp Support' : 'Garantie 100% Authentique d\'Agadir • Assistance WhatsApp directe'}</span>
               </div>
             </div>
 
@@ -355,11 +355,13 @@ export default function ProductDetailPage({
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
             <div className="bg-slate-900 border border-[#C9A227]/30 rounded-2xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-2xl relative text-center">
               <h3 className="font-serif text-xl font-bold text-[#C9A227] tracking-wider uppercase">
-                {currentLang === 'ar' ? 'طلب شراء مباشر عبر واتساب' : 'Achat Rapide via WhatsApp'}
+                {currentLang === 'ar' ? 'طلب شراء مباشر عبر واتساب' : currentLang === 'en' ? 'Quick Purchase via WhatsApp' : 'Achat Rapide via WhatsApp'}
               </h3>
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
                 {currentLang === 'ar' 
                   ? 'يرجى إدخال اسمك الكامل لبدء المحادثة وإتمام طلبك مباشرة عبر واتساب.' 
+                  : currentLang === 'en'
+                  ? 'Please enter your full name to start the chat and complete your purchase directly on WhatsApp.'
                   : 'Saisissez votre nom complet pour lancer la discussion et finaliser l\'achat sur WhatsApp.'}
               </p>
 
@@ -370,7 +372,7 @@ export default function ProductDetailPage({
                   autoFocus
                   value={buyerName}
                   onChange={(e) => setBuyerName(e.target.value)}
-                  placeholder={currentLang === 'ar' ? 'الاسم الكامل' : 'Nom Complet'}
+                  placeholder={currentLang === 'ar' ? 'الاسم الكامل' : currentLang === 'en' ? 'Full Name' : 'Nom Complet'}
                   className="w-full bg-[#0F1B2E] border border-[#C9A227]/20 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-[#C9A227] transition-all text-center"
                 />
 
@@ -380,7 +382,7 @@ export default function ProductDetailPage({
                     onClick={() => setShowDirectBuyModal(false)}
                     className="flex-1 py-3 px-4 rounded-xl border border-gray-700 hover:bg-slate-800 text-gray-300 font-bold text-xs uppercase tracking-wider transition-all"
                   >
-                    {currentLang === 'ar' ? 'إلغاء' : 'Annuler'}
+                    {currentLang === 'ar' ? 'إلغاء' : currentLang === 'en' ? 'Cancel' : 'Annuler'}
                   </button>
                   <button
                     type="submit"
@@ -389,7 +391,7 @@ export default function ProductDetailPage({
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.588 1.981 14.115.957 11.5.957c-5.442 0-9.866 4.372-9.87 9.802 0 1.905.525 3.76 1.517 5.372l-.993 3.626 3.74-.973zm11.398-7.384c-.312-.156-1.847-.91-2.128-1.012-.282-.102-.487-.153-.69.153-.205.307-.795.998-.973 1.201-.178.204-.357.228-.669.072-1.395-.7-2.34-1.258-3.262-2.845-.24-.413.24-.383.687-1.272.078-.156.039-.293-.02-.397-.059-.104-.487-1.173-.668-1.609-.176-.425-.37-.366-.508-.373-.13-.005-.28-.006-.43-.006-.15 0-.395.056-.603.282-.207.227-.792.774-.792 1.888s.81 2.19.922 2.344c.112.155 1.594 2.435 3.862 3.415 1.348.58 2.395.922 3.218 1.183.83.263 1.585.226 2.182.137.665-.1 1.847-.756 2.11-1.487.262-.731.262-1.356.184-1.488-.078-.13-.282-.207-.594-.363z"/>
                     </svg>
-                    <span>{currentLang === 'ar' ? 'إرسال الطلب' : 'Envoyer'}</span>
+                    <span>{currentLang === 'ar' ? 'إرسال الطلب' : currentLang === 'en' ? 'Send Request' : 'Envoyer'}</span>
                   </button>
                 </div>
               </form>

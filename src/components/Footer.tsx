@@ -140,7 +140,7 @@ export default function Footer({ currentLang, setCurrentPage, onSelectCategory }
                   }} 
                   className="text-[#C9A227] hover:underline font-bold text-xs"
                 >
-                  {currentLang === 'ar' ? '⚙️ لوحة التحكم' : '⚙️ Espace Admin'}
+                  {currentLang === 'ar' ? '⚙️ لوحة التحكم' : currentLang === 'en' ? '⚙️ Admin Panel' : '⚙️ Espace Admin'}
                 </button>
               </li>
             </ul>

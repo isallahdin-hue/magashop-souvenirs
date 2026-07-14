@@ -123,7 +123,7 @@ export default function Header({
                   MAGASHOP SOUVENIRS
                 </span>
                 <span className="text-[9px] text-gray-300 tracking-[0.3em] font-light leading-none block mt-1 uppercase opacity-80">
-                  {currentLang === 'ar' ? 'روائع الصناعة التقليدية' : 'SOUVENIRS DE PRESTIGE'}
+                  {currentLang === 'ar' ? 'روائع الصناعة التقليدية' : currentLang === 'en' ? 'PRESTIGE SOUVENIRS' : 'SOUVENIRS DE PRESTIGE'}
                 </span>
               </div>
             </div>
