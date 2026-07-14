@@ -46,7 +46,7 @@ export default function App() {
     const unsubscribe = onSnapshot(q, (snapshot) => {
       if (snapshot.empty) {
         setIsFirestoreEmpty(true);
-        setProducts(PRODUCTS); // Temporarily fallback to high-quality local dummy products so the store doesn't look empty
+        setProducts([]); // Do not fallback to mock/demo data when empty
       } else {
         setIsFirestoreEmpty(false);
         const prods: Product[] = [];
@@ -57,7 +57,7 @@ export default function App() {
       }
     }, (error) => {
       console.error("Firestore read error for products:", error);
-      setProducts(PRODUCTS); // Temporarily fallback to local dummy products on error
+      setProducts([]); // Do not fallback to mock/demo data on error
     });
 
     return () => unsubscribe();
