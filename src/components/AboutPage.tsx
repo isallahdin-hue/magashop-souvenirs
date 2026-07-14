@@ -77,6 +77,7 @@ export default function AboutPage({ currentLang }: AboutPageProps) {
                   src={magashopHero} 
                   alt="Magashop Heritage" 
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F1B2E] via-transparent to-transparent opacity-60" />

@@ -98,6 +98,7 @@ export default function CartDrawer({
                         src={item.product.image} 
                         alt={productName} 
                         referrerPolicy="no-referrer"
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                     </div>

@@ -216,12 +216,20 @@ export default function App() {
     localStorage.setItem('magashop_cart', JSON.stringify(cart));
   }, [cart]);
 
-  // Monitor scroll height to show back-to-top button
+  // Monitor scroll height to show back-to-top button with high performance throttling (RAF)
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const over = window.scrollY > 400;
+          setShowScrollTop((prev) => (prev !== over ? over : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -300,6 +308,9 @@ export default function App() {
           backgroundImage: `linear-gradient(to bottom, rgba(15, 27, 46, 0.55), rgba(15, 27, 46, 0.65)), url(${magashopHero})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          transform: 'translate3d(0, 0, 0)',
+          willChange: 'transform',
+          backfaceVisibility: 'hidden',
         }}
       />
       

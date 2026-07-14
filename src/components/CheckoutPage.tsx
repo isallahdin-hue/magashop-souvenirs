@@ -223,7 +223,7 @@ export default function CheckoutPage({
                     return (
                       <div key={item.product.id} className="flex gap-3 py-3 items-center">
                         <div className="w-12 h-12 rounded bg-slate-900 border border-gray-800 overflow-hidden shrink-0">
-                          <img src={item.product.image} alt={name} className="w-full h-full object-cover" />
+                          <img src={item.product.image} alt={name} referrerPolicy="no-referrer" loading="lazy" className="w-full h-full object-cover" />
                         </div>
                         <div className="flex-1 min-w-0 text-xs">
                           <h4 className="font-serif font-bold text-white truncate">{name}</h4>

@@ -586,6 +586,7 @@ export default function Homepage({
                   src={item.image} 
                   alt="Instagram Post" 
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-[#0F1B2E]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10 text-xs font-semibold text-white">
