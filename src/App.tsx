@@ -382,10 +382,12 @@ export default function App() {
         rel="noreferrer"
         className={`fixed bottom-6 ${
           isRTL ? 'left-6' : 'right-6'
-        } z-40 bg-[#25D366] hover:bg-white text-white hover:text-[#25D366] p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95 flex items-center justify-center group ring-4 ring-[#25D366]/20`}
+        } z-40 bg-[#C9A227] hover:bg-white text-[#0F1B2E] hover:text-[#C9A227] p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95 flex items-center justify-center group ring-4 ring-[#C9A227]/20`}
         aria-label="Contact us on WhatsApp"
       >
-        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 text-current" />
+        <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.588 1.981 14.115.957 11.5.957c-5.442 0-9.866 4.372-9.87 9.802 0 1.905.525 3.76 1.517 5.372l-.993 3.626 3.74-.973zm11.398-7.384c-.312-.156-1.847-.91-2.128-1.012-.282-.102-.487-.153-.69.153-.205.307-.795.998-.973 1.201-.178.204-.357.228-.669.072-1.395-.7-2.34-1.258-3.262-2.845-.24-.413.24-.383.687-1.272.078-.156.039-.293-.02-.397-.059-.104-.487-1.173-.668-1.609-.176-.425-.37-.366-.508-.373-.13-.005-.28-.006-.43-.006-.15 0-.395.056-.603.282-.207.227-.792.774-.792 1.888s.81 2.19.922 2.344c.112.155 1.594 2.435 3.862 3.415 1.348.58 2.395.922 3.218 1.183.83.263 1.585.226 2.182.137.665-.1 1.847-.756 2.11-1.487.262-.731.262-1.356.184-1.488-.078-.13-.282-.207-.594-.363z"/>
+        </svg>
         
         {/* Help tooltip */}
         <span className={`absolute ${isRTL ? 'right-full mr-3' : 'left-full ml-3'} hidden group-hover:block bg-[#0A1120] border border-[#C9A227]/30 text-[#C9A227] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg whitespace-nowrap shadow-xl transition-all duration-300`}>
@@ -393,7 +395,7 @@ export default function App() {
         </span>
         
         {/* Pulsing indicator ring */}
-        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25 -z-10" />
+        <span className="absolute inset-0 rounded-full bg-[#C9A227] animate-ping opacity-25 -z-10" />
       </a>
 
       {/* BACK TO TOP BUTTON */}
