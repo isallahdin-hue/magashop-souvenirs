@@ -95,7 +95,7 @@ export const TRANSLATIONS = {
     hoursTitle: 'Heures d\'Ouverture',
     hoursDetails: 'Mardi au Dimanche : 09:00 - 20:00 (Fermé le Lundi)',
     phoneTitle: 'WhatsApp & Téléphone',
-    chatWhatsApp: 'Discuter avec Mustapha sur WhatsApp',
+    chatWhatsApp: 'Discuter avec Hicham sur WhatsApp',
     instagramFeedTitle: 'Suivez nos créations sur Instagram',
     instagramHandle: '@magashop_souvenirs'
   },
@@ -195,7 +195,7 @@ export const TRANSLATIONS = {
     hoursTitle: 'Opening Hours',
     hoursDetails: 'Tuesday to Sunday: 09:00 - 20:00 (Closed Monday)',
     phoneTitle: 'WhatsApp & Phone',
-    chatWhatsApp: 'Chat with Mustapha on WhatsApp',
+    chatWhatsApp: 'Chat with Hicham on WhatsApp',
     instagramFeedTitle: 'Follow our creations on Instagram',
     instagramHandle: '@magashop_souvenirs'
   },
@@ -295,7 +295,7 @@ export const TRANSLATIONS = {
     hoursTitle: 'أوقات العمل',
     hoursDetails: 'من الثلاثاء إلى الأحد: 09:00 صباحاً - 08:00 مساءً (الإثنين مغلق)',
     phoneTitle: 'الهاتف والواتساب',
-    chatWhatsApp: 'تحدث مع مصطفى على الواتساب',
+    chatWhatsApp: 'تحدث مع هشام على الواتساب',
     instagramFeedTitle: 'تابع إبداعاتنا على إنستغرام',
     instagramHandle: '@magashop_souvenirs'
   }

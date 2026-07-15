@@ -212,9 +212,9 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'John Miller',
     country: 'United Kingdom',
     rating: 5,
-    text_fr: 'The brass lantern is a true piece of art. It creates a magical golden atmosphere in my bedroom. The owner, Mustapha, was incredibly kind and explained the whole artisanal process to us. Highly recommend visiting if you are in Agadir!',
-    text_en: 'The brass lantern is a true piece of art. It creates a magical golden atmosphere in my bedroom. The owner, Mustapha, was incredibly kind and explained the whole artisanal process to us. Highly recommend visiting if you are in Agadir!',
-    text_ar: 'الفانوس النحاسي تحفة فنية حقيقية. يضفي جوًا ذهبيًا سحريًا على غرفتي. صاحب المحل مصطفى كان لطيفًا للغاية وشرح لنا مراحل الصنع التقليدي بالتفصيل. أنصح بزيارته بشدة إذا كنتم في أكادير!',
+    text_fr: 'The brass lantern is a true piece of art. It creates a magical golden atmosphere in my bedroom. The owner, Hicham, was incredibly kind and explained the whole artisanal process to us. Highly recommend visiting if you are in Agadir!',
+    text_en: 'The brass lantern is a true piece of art. It creates a magical golden atmosphere in my bedroom. The owner, Hicham, was incredibly kind and explained the whole artisanal process to us. Highly recommend visiting if you are in Agadir!',
+    text_ar: 'الفانوس النحاسي تحفة فنية حقيقية. يضفي جوًا ذهبيًا سحريًا على غرفتي. صاحب المحل هشام كان لطيفًا للغاية وشرح لنا مراحل الصنع التقليدي بالتفصيل. أنصح بزيارته بشدة إذا كنتم في أكادير!',
     date: '28 Avril 2026'
   },
   {

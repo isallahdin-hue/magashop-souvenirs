@@ -84,7 +84,9 @@ export default function ContactPage({ currentLang }: ContactPageProps) {
                 </div>
                 <div className="text-xs sm:text-sm text-gray-300 pl-8 space-y-2">
                   <div>
-                    <span className="block font-semibold text-white">Mustapha Alaoui (Gérant)</span>
+                    <span className="block font-semibold text-white">
+                      {currentLang === 'ar' ? 'هشام' : 'Hicham'}
+                    </span>
                     <a href="tel:+212661443259" className="hover:text-[#C9A227] transition-colors">0661443259 / +212 661 443259</a>
                   </div>
                   <div>

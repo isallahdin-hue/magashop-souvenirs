@@ -185,7 +185,7 @@ export default function CheckoutPage({
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder={currentLang === 'ar' ? 'مثال: مصطفى العلوي' : currentLang === 'en' ? 'Ex: John Doe' : 'Ex: Mustapha Alaoui'}
+                    placeholder={currentLang === 'ar' ? 'مثال: هشام العلوي' : currentLang === 'en' ? 'Ex: John Doe' : 'Ex: Hicham Alaoui'}
                     className="w-full bg-[#0F1B2E] border border-[#C9A227]/20 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-[#C9A227] transition-all"
                   />
                 </div>
